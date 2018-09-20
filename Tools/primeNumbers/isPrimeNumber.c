@@ -130,7 +130,7 @@ _Bool isPrimeNumber_4(int num)
     {
         return 0;
     }
-    int top = squareRootFloor(num) + 1;
+    int top = squareRootFloor(num);
     // try 2 first
     if (num % 2 == 0)
     {
@@ -150,20 +150,45 @@ _Bool isPrimeNumber_4(int num)
     return 1;
 }
 
-// this time will store the prime numbers that 
+// Based on algo 4, square roots 
 _Bool isPrimeNumber_5(int num)
 {
     if(num == 1)
     {
         return 0;
     }
-    int top = squareRootFloor(num)+1;
   //  int primeArray
     // try 2 first
     if(num % 2 == 0){
         return 0;
     }
-    for (int i = 3; i < top; i += 2)
+    for (int i = 3; i * i < num; i += 2)
+    {
+        if (num % i != 0)
+        {
+            continue;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+// this time will store the prime numbers that 
+_Bool isPrimeNumber_6(int num)
+{
+    if(num == 1)
+    {
+        return 0;
+    }
+  //  int primeArray
+    // try 2 first
+    if(num % 2 == 0){
+        return 0;
+    }
+    for (int i = 3; i * i < num; i += 2)
     {
         if (num % i != 0)
         {
